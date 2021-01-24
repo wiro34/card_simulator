@@ -1,3 +1,5 @@
+# @format
+
 version: "3.8"
 
 services:
@@ -11,3 +13,4 @@ services:
     working_dir: /root/card_simulator
     volumes:
       - ./:/root/card_simulator
+      - ~/.ssh:/root/.ssh:ro

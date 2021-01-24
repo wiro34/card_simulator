@@ -1,11 +1,29 @@
-import React from 'react';
-import './App.css';
+/** @format */
+
+import React, { useState } from "react";
+import CardCanvas from "./CardCanvas/CardCanvas";
+import CardForm from "./CardForm/CardForm";
+import classes from "./App.module.scss";
+
+export interface CardValues {
+  title: string;
+  text: string;
+}
 
 function App() {
+  const [values, setValues] = useState<CardValues>({ title: "", text: "" });
+
+  const handleChange = (values: CardValues) => {
+    setValues(values);
+  };
+
   return (
-    <div className="App">
+    <div className={classes.App}>
       <h1>Card Simulator</h1>
-      aaa
+      <div>
+        <CardForm values={values} onChange={handleChange} />
+        <CardCanvas values={values} />
+      </div>
     </div>
   );
 }
