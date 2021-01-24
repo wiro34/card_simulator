@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    image: node:14
+    entrypoint: ""
+    # command: tail -f /dev/null
+    command: yarn start
+    ports:
+      - 3000:3000
+    working_dir: /root/card_simulator
+    volumes:
+      - ./:/root/card_simulator
