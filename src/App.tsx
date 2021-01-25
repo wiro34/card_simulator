@@ -8,10 +8,16 @@ import classes from "./App.module.scss";
 export interface CardValues {
   title: string;
   text: string;
+  bgcolor: string;
+  point?: string;
 }
 
 function App() {
-  const [values, setValues] = useState<CardValues>({ title: "", text: "" });
+  const [values, setValues] = useState<CardValues>({
+    title: "",
+    text: "",
+    bgcolor: "#ffffff",
+  });
 
   const handleChange = (values: CardValues) => {
     setValues(values);

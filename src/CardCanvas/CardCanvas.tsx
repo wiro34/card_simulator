@@ -83,9 +83,13 @@ const CardCanvas: React.FC<Props> = ({ values }) => {
 
     ctx.clearRect(0, 0, 200, 300);
 
+    // background(transparent)
+    ctx.fillStyle = "rgba(128,255,128, 0)";
+    ctx.fillRect(0, 0, 200, 300);
+
     // outline
     ctx.strokeStyle = "black";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = values.bgcolor;
     roundRect(ctx, {
       x: 0,
       y: 0,
@@ -95,6 +99,22 @@ const CardCanvas: React.FC<Props> = ({ values }) => {
       fill: true,
       stroke: true,
     });
+
+    // point
+    if (values.point && values.point.length > 0) {
+      ctx.strokeStyle = "black";
+      ctx.fillStyle = "white";
+      ctx.beginPath();
+      ctx.arc(30, 30, 20, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.font = "1.5rem 'Sawarabi Gothic'";
+      ctx.fillStyle = "black";
+      ctx.fillText(values.point, 30, 38, 30);
+    }
 
     // title
     ctx.textAlign = "center";

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent } from "react";
 import { CardValues } from "../App";
 import classes from "./CardForm.module.scss";
 
@@ -28,6 +28,28 @@ const CardForm: React.FC<Props> = ({ values, onChange }) => {
                 type="text"
                 name="title"
                 value={values.title}
+                onChange={handleChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Backgroud Color</th>
+            <td>
+              <input
+                type="color"
+                name="bgcolor"
+                value={values.bgcolor}
+                onChange={handleChange}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Point</th>
+            <td>
+              <input
+                type="text"
+                name="point"
+                value={values.point}
                 onChange={handleChange}
               />
             </td>
